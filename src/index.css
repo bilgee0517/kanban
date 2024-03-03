@@ -1,0 +1,259 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.kanban-title {
+  position: sticky;
+  top: 0; /* Stick to the top of the container */
+  background: white; /* Ensure text isn't seen through when scrolling */
+  z-index: 2; /* Ensures it stays above the scrolled content */
+}
+/* Column Container Styles */
+.columns-container {
+  display: flex; /* Use flex layout for the columns */
+  flex-direction: row; /* Arrange columns horizontally */
+  align-items: flex-start; /* Align columns to the top */
+  gap: 10px; /* Space between columns */
+  padding: 10px; /* Padding around the entire container */
+  overflow-x: auto; /* Allows horizontal scrolling if columns exceed the viewport width */
+  min-height: 100vh; /* Optional: ensures container takes up minimum full viewport height */
+  width: 500px;
+}
+
+.kanban-header {
+  height: 50px; /* Fixed height for the header */
+  background-color: #007bff; /* Adjust the background color as needed */
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 4px 4px 0 0;
+}
+
+.kanban-title {
+  background-color: #007bff; /* Blue background matching the header */
+  padding: 10px; /* Add padding for better spacing */
+  border-radius: 4px; /* Optional: Rounds the corners */
+}
+
+.kanban-title h2 {
+  font-size: 20px;
+  margin: 0;
+  color:#ffffff; 
+}
+
+/* If you need the button to stand out more: */
+.button {
+  color: #007bff; /* Button text color */
+  background-color: #ffffff; /* Button background */
+  border-color: #007bff; /* Button border */
+}
+
+/* Additional styling for the delete button if needed */
+.delete-btn {
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* Button Styles */
+button {
+  font-size: 14px;
+}
+
+/* Column Content Styles */
+/* Individual Column Styles */
+.kanban-column {
+  flex: 0 0 400px; /* Flex basis set to 400px, flex-grow is 0, flex-shrink is 0 to maintain width */
+  height: 100px; /* Adjust the height calculation based on your header/footer */
+  overflow-y: auto; /* Allows vertical scrolling within each column */
+  background-color: #f0f0f0; /* Optional: background color for columns */
+  border-radius: 8px; /* Optional: rounded corners for columns */
+  padding: 10px; /* Optional: inner padding for column content */
+}
+
+.kanban-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Ensure Add Task Button is visible and styled */
+.add-task-btn {
+  background-color: #28a745;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin: 10px; /* Adjust spacing around the button */
+  align-self: center; /* Center button within the column */
+}
+
+.task-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Add some hover effect for tasks */
+.task-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+.Header{
+  text-align: center;
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Overall modal enhancements for balanced appearance */
+.add-task-modal .modal-content {
+  background-color: #fff; /* Clean white background */
+  border-radius: 0.5rem; /* Uniform rounded corners */
+  border: 1px solid #dee2e6; /* Subtle border */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+}
+
+.add-task-modal .modal-header, .add-task-modal .modal-footer {
+  padding: 1rem; /* Uniform padding for header and footer */
+  border-bottom: 1px solid #dee2e6; /* Header border */
+  border-top: 1px solid #dee2e6; /* Footer border */
+}
+
+.add-task-modal .modal-title {
+  margin: 0 auto; /* Center title */
+  font-size: 1.25rem; /* Appropriate size for readability */
+}
+
+.add-task-modal .modal-body {
+  padding: 1.5rem; /* Slightly more padding inside the body for space */
+}
+
+/* Form field enhancements */
+.add-task-modal .form-group {
+  margin-bottom: 1rem; /* Consistent bottom margin for form groups */
+}
+
+.add-task-modal .form-control, .add-task-modal .form-select {
+  border-radius: 0.25rem; /* Slightly rounded edges for form elements */
+  border: 1px solid #ced4da; /* Consistent border */
+  padding: 0.5rem 0.75rem; /* Comfortable padding */
+}
+
+.add-task-modal .form-label {
+  display: block; /* Ensure labels are block-level for consistent alignment */
+  margin-bottom: 0.5rem; /* Space between label and input */
+  font-weight: 600; /* Semi-bold for clarity */
+}
+
+/* Buttons */
+.add-task-modal .btn {
+  padding: 0.375rem 0.75rem; /* Padding that balances size and readability */
+  margin-right: 0.5rem; /* Right margin for spacing between buttons */
+  border-radius: 0.25rem; /* Match form elements' rounded edges */
+  font-size: 1rem; /* Legible font size */
+}
+
+.add-task-modal .btn-primary {
+  background-color: #007bff; /* Vivid primary color */
+  border-color: #007bff; /* Matching border */
+}
+
+.add-task-modal .btn-secondary {
+  background-color: #6c757d; /* Neutral secondary color */
+  border-color: #6c757d; /* Matching border */
+}
+
+/* Ensure modal header and footer items are evenly spaced */
+.add-task-modal .modal-header, .add-task-modal .modal-footer {
+  justify-content: center; /* Center items for a balanced look */
+}
+
+.add-task-modal .modal-footer {
+  border-top: 1px solid #dee2e6; /* Consistent with the modal header */
+}
+
+/* Container for each task */
+.task {
+  background-color: #f0f0f0; /* Light grey background */
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 16px; /* Space between tasks */
+  padding: 20px; /* Padding inside the task */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Task title */
+.task h2 {
+  color: #333; /* Darker text color for contrast */
+  margin-top: 0;
+  margin-bottom: 8px; /* Space between title and description */
+}
+
+/* Task description */
+.task p {
+  color: #666; /* Lighter text color */
+  margin: 0; /* Remove default margin */
+}
+
+.task-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.task-item h2 {
+  cursor: pointer;
+  margin: 0 0 10px 0;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px; /* Adjust the space between buttons */
+}
+
+/* Styling for buttons, adjust as necessary */
+.task-actions button {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-subtask-button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336; /* Red */
+  color: white;
+}
